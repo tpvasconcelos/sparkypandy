@@ -1,9 +1,5 @@
 <h1 id="sparkypandy" align="center">SparkyPandy: a pandas API for spark</h1>
 
-  <!-- <p align="center"><b>A pandas API for spark!</b></p> -->
-
-
-
 <p align="center">
   <!-- TODO: https://bestpractices.coreinfrastructure.org/en -->
   <a href="https://pypi.org/project/sparkypandy/">
@@ -39,5 +35,3 @@
 <p align="center"><i>It&#39;s not spark, it&#39;s not pandas, it&#39;s just awkward...</i></p>
 
 ---
-
-
