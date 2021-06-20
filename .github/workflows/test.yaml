@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install -e ".[tests]"
       - name: Generate coverage report
         run: pytest --cov=sparkypandy --cov=tests --cov-report=xml tests
       - name: Upload coverage
