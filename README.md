@@ -3,6 +3,7 @@
 It's not spark, it's now pandas, it's just awkward...
 
 [![PyPI Latest Release](https://img.shields.io/pypi/v/sparkypandy.svg)](https://pypi.org/project/sparkypandy/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/sparkypandy)](https://github.com/tpvasconcelos/sparkypandy/)
 [![Package Status](https://img.shields.io/pypi/status/sparkypandy.svg)](https://pypi.org/project/sparkypandy/)
 [![License](https://img.shields.io/pypi/l/sparkypandy.svg)](https://github.com/tpvasconcelos/sparkypandy/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/tpvasconcelos/sparkypandy/branch/master/graph/badge.svg?token=U1LW7Y01II)](https://codecov.io/gh/tpvasconcelos/sparkypandy)
