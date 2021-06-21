@@ -31,17 +31,16 @@ We all love to hate on pandas' API... so why learn a new one?
 
 <img src="file://assets/images/pandas_api.jpeg" alt="pandas API" width="1280">
 
-
 ## How to get it?
 
 <details>
 <summary>dont</summary>
 
 ok... fine!
+
 ```bash
 pip install sparkypandy
 ```
-
 
 ```bash
 conda install -c conda-forge sparkypandy
