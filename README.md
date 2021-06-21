@@ -36,11 +36,13 @@ We all love to hate on pandas' API... so why learn a new one?
 <details>
 <summary>dont</summary>
 
-ok... fine!
+ok... fine! you can get it from [pypi](https://pypi.org/project/sparkypandy/)
 
 ```bash
 pip install sparkypandy
 ```
+
+or from [conda](https://anaconda.org/conda-forge/sparkypandy)
 
 ```bash
 conda install -c conda-forge sparkypandy
