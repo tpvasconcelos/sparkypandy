@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/images/choices.jpg" alt="so many choices" width="600">
+    <img src="assets/images/choices.jpg" alt="so many choices" width="500">
 </p>
 
 <h1 id="sparkypandy" align="center">
@@ -29,7 +29,7 @@
 
 We all love to hate on pandas' API... so why learn a new one?
 
-<img src="assets/images/pandas_api.jpeg" alt="pandas API" width="1280">
+<img src="assets/images/pandas_api.jpeg" alt="pandas API" width="500">
 
 ## How to get it?
 
