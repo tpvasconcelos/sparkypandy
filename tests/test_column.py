@@ -3,7 +3,8 @@ import pytest
 from pyspark.sql import DataFrame
 
 from sparkypandy import Columny, DataFramy
-from tests.conftest import ALL_COLUMN_NAMES
+from sparkypandy.testing import assert_series_equal
+from tests.conftest import ALL_COLUMN_NAMES, NUMERIC_COLUMN_NAMES
 
 
 class TestColumny:
@@ -26,4 +27,31 @@ class TestColumny:
     def test_to_pandas(self, df_sparky: DataFramy, df_pandas: pd.DataFrame, col_name: str) -> None:
         col_sparky = df_sparky[col_name]
         col_pandas = df_pandas[col_name]
-        pd.testing.assert_series_equal(col_sparky.to_pandas(), col_pandas)
+        assert_series_equal(col_sparky.to_pandas(), col_pandas)
+
+    # ==================================================================
+    # test aggregations
+    # ==================================================================
+
+    # test: mean()
+
+    @pytest.mark.parametrize("col_name", NUMERIC_COLUMN_NAMES)  # type: ignore
+    def test_mean(self, df_sparky: DataFramy, df_pandas: pd.DataFrame, col_name: str) -> None:
+        mean_df_sparky = df_sparky[col_name].mean().to_pandas()
+        mean_pandas = df_pandas[col_name].mean()
+        assert mean_df_sparky.iloc[0] == mean_pandas
+        pd.testing.assert_series_equal(mean_df_sparky, pd.Series(mean_pandas, name=f"mean({col_name})"))
+
+    @pytest.mark.parametrize("col_name", NUMERIC_COLUMN_NAMES)  # type: ignore
+    def test_mean_with_alias(self, df_sparky: DataFramy, df_pandas: pd.DataFrame, col_name: str) -> None:
+        target_alias_str = "target_alias_str"
+        mean_df_sparky = df_sparky[col_name].mean(alias=target_alias_str).to_pandas()
+        mean_pandas = df_pandas[col_name].mean()
+        assert mean_df_sparky.iloc[0] == mean_pandas
+        pd.testing.assert_series_equal(mean_df_sparky, pd.Series(mean_pandas, name=target_alias_str))
+
+    @pytest.mark.parametrize("col_name", NUMERIC_COLUMN_NAMES)  # type: ignore
+    def test_mean_with_collect(self, df_sparky: DataFramy, df_pandas: pd.DataFrame, col_name: str) -> None:
+        mean_sparky = df_sparky[col_name].mean(collect=True)
+        mean_pandas = df_pandas[col_name].mean()
+        assert mean_sparky == mean_pandas

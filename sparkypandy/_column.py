@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Union, cast, overload
 
 import pandas as pd
 from py4j.java_gateway import JavaObject
-from pyspark.sql import Column
+from pyspark.sql import Column, functions as F
+from typing_extensions import Literal
 
 if TYPE_CHECKING:
     from sparkypandy import DataFramy
@@ -32,5 +33,23 @@ class Columny(Column):  # type: ignore
         df: pd.DataFrame = self.df_sparky.select(self).toPandas()
         return df[self._name]
 
-    # def mean(self) -> float:
-    #     r = df_spark.select(F.mean("a").alias("result")).collect()[0].result
+    # ==================================================================
+    # Aggregations
+    # ==================================================================
+
+    @overload
+    def mean(self, alias: str = None, collect: Literal[False] = False) -> Columny:
+        ...
+
+    @overload
+    def mean(self, alias: str = None, collect: Literal[True] = True) -> float:
+        ...
+
+    def mean(self, alias: str = None, collect: bool = False) -> Union[Columny, float]:
+        if not alias:
+            alias = f"mean({self._name})"
+        col = F.mean(self).alias(alias)
+        if collect:
+            result: float = self.df_sparky.select(col).collect()[0][alias]
+            return result
+        return Columny.from_spark(col=col, df_sparky=self.df_sparky)
