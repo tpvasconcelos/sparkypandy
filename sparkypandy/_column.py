@@ -4,14 +4,14 @@ from typing import TYPE_CHECKING, cast
 
 import pandas as pd
 from py4j.java_gateway import JavaObject
-from pyspark.sql import Column, DataFrame
+from pyspark.sql import Column
 
 if TYPE_CHECKING:
     from sparkypandy import DataFramy
 
 
 class Columny(Column):  # type: ignore
-    def __init__(self, jc: JavaObject, df_sparky: DataFrame):
+    def __init__(self, jc: JavaObject, df_sparky: DataFramy):
         super().__init__(jc=jc)
         self.df_sparky = df_sparky
 

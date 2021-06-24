@@ -6,7 +6,6 @@ from sparkypandy.testing import assert_frame_equal, assert_series_equal, sort_da
 s = pd.Series([4, 3, 1, 2, 5])
 s_sorted = pd.Series([1, 2, 3, 4, 5])
 
-
 df = pd.DataFrame({"B": [10, 7, 8, 9, 6], "A": [5, 2, 3, 4, 1]})
 df_sorted = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [6, 7, 8, 9, 10]})
 
