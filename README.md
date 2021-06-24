@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="assets/images/choices.jpg" alt="so many choices" width="500">
-</p>
-
 <h1 id="sparkypandy" align="center">
     SparkyPandy: a pandas API for spark
 </h1>
@@ -19,33 +15,35 @@
   <a href="https://codecov.io/gh/tpvasconcelos/sparkypandy"><img src="https://codecov.io/gh/tpvasconcelos/sparkypandy/branch/master/graph/badge.svg" alt="codecov"></a>
   <a href="https://www.codefactor.io/repository/github/tpvasconcelos/sparkypandy"><img src="https://www.codefactor.io/repository/github/tpvasconcelos/sparkypandy/badge" alt="CodeFactor"></a>
   <a href="https://www.codacy.com/gh/tpvasconcelos/sparkypandy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvasconcelos/sparkypandy&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/24e94a244a504de8a345b70f41c34445" alt="Codacy code quality"></a>
+  <a href="https://requires.io/github/tpvasconcelos/sparkypandy/requirements/?branch=master"><img src="https://requires.io/github/tpvasconcelos/sparkypandy/requirements.svg?branch=master" alt="Requirements Status" /></a>
 </p>
 
 <p align="center"><i>It&#39;s not spark, it&#39;s not pandas, it&#39;s just awkward...</i></p>
 
 ---
 
-## y tho?
+## Where do I get it?
 
-We all love to hate on pandas' API... so why learn a new one?
+<img src="assets/images/satmm.jpeg" alt="shut up" height="200" align="right">
 
-<img src="assets/images/pandas_api.jpeg" alt="pandas API" width="500">
-
-## How to get it?
-
-<details>
-<summary>dont</summary>
-
-ok... fine! you can get it from [pypi](https://pypi.org/project/sparkypandy/)
+Get the binary installer for the latest available release at [PyPi](https://pypi.org/project/sparkypandy/)
 
 ```bash
 pip install sparkypandy
 ```
 
-or from [conda](https://anaconda.org/conda-forge/sparkypandy)
+or from [Conda](https://anaconda.org/conda-forge/sparkypandy)
 
 ```bash
 conda install -c conda-forge sparkypandy
 ```
+
+## But... y tho?
+
+<details>
+
+<summary>We all love to hate on pandas' API... so why learn a new one?</summary>
+<br>
+<img src="assets/images/pandas_api.jpeg" alt="pandas API" width="400">
 
 </details>
