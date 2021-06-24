@@ -17,7 +17,10 @@ class Columny(Column):  # type: ignore
 
     @property
     def _name(self) -> str:
-        return cast(str, self._jc.toString())
+        name = cast(str, self._jc.toString())
+        if " AS " in name:
+            name = name.split(" AS ")[-1].strip("`")
+        return name
 
     @classmethod
     def from_spark(cls, col: Column, df_sparky: DataFramy) -> Columny:
@@ -26,7 +29,7 @@ class Columny(Column):  # type: ignore
 
     def to_pandas(self) -> pd.Series:
         # noinspection PyTypeChecker
-        df: pd.DataFrame = self.df_sparky.select(self._name).toPandas()
+        df: pd.DataFrame = self.df_sparky.select(self).toPandas()
         return df[self._name]
 
     # def mean(self) -> float:
