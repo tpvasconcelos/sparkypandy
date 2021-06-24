@@ -29,11 +29,16 @@ def spark_session() -> SparkSession:
 def df_pandas() -> pd.DataFrame:
     df_pandas = pd.DataFrame(
         {
-            "a": [1, 2, 3],
-            "b": [2.0, 3.0, 4.0],
-            "c": ["string1", "string2", "string3"],
-            "d": [date(2000, 1, 1), date(2000, 2, 1), date(2000, 3, 1)],
-            "e": [datetime(2000, 1, 1, 12, 0), datetime(2000, 1, 2, 12, 0), datetime(2000, 1, 3, 12, 0)],
+            "a": [1, 2, 3, 4],
+            "b": [2.5, 5.0, 7.5, 10.0],
+            "c": ["string1", "string2", "string3", "string4"],
+            "d": [date(2000, 1, 1), date(2000, 2, 1), date(2000, 3, 1), date(2000, 4, 1)],
+            "e": [
+                datetime(2000, 1, 1, 12, 0),
+                datetime(2000, 1, 2, 12, 0),
+                datetime(2000, 1, 3, 12, 0),
+                datetime(2000, 1, 4, 12, 0),
+            ],
         }
     )
     return df_pandas
@@ -51,4 +56,5 @@ def df_sparky(spark_session: SparkSession, df_pandas: pd.DataFrame) -> DataFramy
     return DataFramy.from_pandas(spark_session=spark_session, df_pandas=df_pandas)
 
 
-COLUMN_NAMES = ["a", "b", "c", "d", "e"]
+ALL_COLUMN_NAMES = ("a", "b", "c", "d", "e")
+NUMERIC_COLUMN_NAMES = ("a", "b")

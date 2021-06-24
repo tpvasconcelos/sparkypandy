@@ -4,7 +4,7 @@ from pyspark.sql import DataFrame, SparkSession
 
 from sparkypandy import Columny, DataFramy
 from sparkypandy.testing import assert_frame_equal, assert_series_equal
-from tests.conftest import COLUMN_NAMES
+from tests.conftest import ALL_COLUMN_NAMES
 
 
 class TestDataFramy:
@@ -29,10 +29,10 @@ class TestDataFramy:
         with pytest.raises(TypeError):
             _ = df_sparky[["I", "am", "not", "a", "string"]]  # type: ignore
 
-    @pytest.mark.parametrize("col_name", COLUMN_NAMES)  # type: ignore
+    @pytest.mark.parametrize("col_name", ALL_COLUMN_NAMES)  # type: ignore
     def test_getitem_returns_columny(self, df_sparky: DataFramy, col_name: str) -> None:
         assert isinstance(df_sparky[col_name], Columny)
 
-    @pytest.mark.parametrize("col_name", COLUMN_NAMES)  # type: ignore
+    @pytest.mark.parametrize("col_name", ALL_COLUMN_NAMES)  # type: ignore
     def test_getitem_equal_pandas(self, df_pandas: pd.DataFrame, df_sparky: DataFramy, col_name: str) -> None:
         assert_series_equal(df_pandas[col_name], df_sparky[col_name].to_pandas())
