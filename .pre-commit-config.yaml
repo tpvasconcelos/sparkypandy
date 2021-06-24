@@ -32,7 +32,7 @@ repos:
     rev: v2.10.0
     hooks:
       - id: pyupgrade
-        args: [ --py36-plus ]
+        args: [ --py36-plus, --keep-runtime-typing]
         description: Automatically upgrade syntax for newer versions of the python language.
 
   - repo: https://github.com/psf/black
