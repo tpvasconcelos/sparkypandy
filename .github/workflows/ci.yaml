@@ -1,6 +1,20 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - assets/**
+      - .editorconfig
+      - .gitignore
+      - Makefile
+      - README.md
+  pull_request:
+    paths-ignore:
+      - assets/**
+      - .editorconfig
+      - .gitignore
+      - Makefile
+      - README.md
 
 jobs:
   lint:
