@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import sys
 from typing import TYPE_CHECKING, Union, cast, overload
+
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 
 import pandas as pd
 from py4j.java_gateway import JavaObject
 from pyspark.sql import Column, functions as F
-from typing_extensions import Literal
 
 if TYPE_CHECKING:
     from sparkypandy import DataFramy
