@@ -20,11 +20,17 @@
 
 <p align="center"><i>It&#39;s not spark, it&#39;s not pandas, it&#39;s just awkward...</i></p>
 
+<p align="center">
+    <a href="https://www.youtube.com/watch?v=600hEP82eVo" target="_blank">
+        <img src="https://img.youtube.com/vi/600hEP82eVo/0.jpg" width="320" height="240" alt="spark and pandas (sparkypandy) but its awkward" />
+    </a>
+</p>
+
 ---
 
 ## Where do I get it?
 
-<img src="assets/images/satmm.jpeg" alt="shut up" height="200" align="right">
+<img src="assets/images/satmm.jpeg" alt="shut up" width="320" height="200" align="right">
 
 Get the binary installer for the latest available release at [PyPi](https://pypi.org/project/sparkypandy/)
 
@@ -41,9 +47,7 @@ conda install -c conda-forge sparkypandy
 ## But... y tho?
 
 <details>
-
-<summary>We all love to hate on pandas' API... so why learn a new one?</summary>
-<br>
-<img src="assets/images/pandas_api.jpeg" alt="pandas API" width="400">
-
+  <summary>We all love to hate on pandas' API... so why learn a new one?</summary>
+  <br>
+  <img src="assets/images/pandas_api.jpeg" alt="pandas API" width="400" height="400">
 </details>
