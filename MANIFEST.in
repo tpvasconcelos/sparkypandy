@@ -1,9 +1,9 @@
-include VERSION
 include LICENSE
 include README.md
 include CHANGELOG.md
 include AUTHORS.md
 
+recursive-include sparkypandy *
 recursive-include tests *
 recursive-include examples *
 recursive-include docs *
