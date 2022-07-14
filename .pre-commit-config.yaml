@@ -60,10 +60,14 @@ repos:
       - id: flake8
         additional_dependencies: [flake8-typing-imports==1.7.0]
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.812
+  - repo: local
     hooks:
       - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [ python ]
+        args: [ "--config=mypy.ini", "--cache-dir=/dev/null", "--no-incremental" ]
         pass_filenames: false
 
   - repo: https://github.com/asottile/setup-cfg-fmt

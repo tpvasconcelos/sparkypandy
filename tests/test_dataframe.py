@@ -25,14 +25,23 @@ class TestDataFramy:
     # tests: DataFramy.__getitem__
     # ==================================================================
 
-    def test_getitem_raises_for_nonstring_arg(self, df_sparky: DataFramy) -> None:
+    def test_getitem_raises_for_unallowed_types(self, df_sparky: DataFramy) -> None:
         with pytest.raises(TypeError):
-            _ = df_sparky[["I", "am", "not", "a", "string"]]  # type: ignore
+            _ = df_sparky[12.17]  # type: ignore
+        with pytest.raises(TypeError):
+            _ = df_sparky[{"a": 12.17}]  # type: ignore
+
+    # returning a Columny/Series
 
     @pytest.mark.parametrize("col_name", ALL_COLUMN_NAMES)  # type: ignore
-    def test_getitem_returns_columny(self, df_sparky: DataFramy, col_name: str) -> None:
+    def test_getitem_returns_columny(self, df_pandas: pd.DataFrame, df_sparky: DataFramy, col_name: str) -> None:
         assert isinstance(df_sparky[col_name], Columny)
-
-    @pytest.mark.parametrize("col_name", ALL_COLUMN_NAMES)  # type: ignore
-    def test_getitem_equal_pandas(self, df_pandas: pd.DataFrame, df_sparky: DataFramy, col_name: str) -> None:
         assert_series_equal(df_pandas[col_name], df_sparky[col_name].to_pandas())
+
+    # returning a DataFramy/DataFrame
+
+    def test_getitem_returns_dataframy(self, df_pandas: pd.DataFrame, df_sparky: DataFramy) -> None:
+        expected = df_pandas[ALL_COLUMN_NAMES]
+        actual = df_sparky[ALL_COLUMN_NAMES]
+        assert isinstance(actual, DataFramy)
+        assert_frame_equal(expected, actual.to_pandas())

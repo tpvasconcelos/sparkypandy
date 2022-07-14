@@ -12,7 +12,7 @@ from sparkypandy import DataFramy
 @pytest.fixture(scope="session")  # type: ignore
 def spark_session() -> SparkSession:
     print("Setting up a test Spark Session...")
-    master = os.getenv("SPARK_MASTER", "local[2]")
+    master = os.getenv("SPARK_MASTER", "local[1]")
     spark_session = SparkSession.builder.master(master).appName("sparky-pandy-local-testing").getOrCreate()
     logger = logging.getLogger("py4j")
     logger.setLevel(logging.WARNING)
