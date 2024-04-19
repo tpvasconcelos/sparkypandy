@@ -43,14 +43,12 @@ class Columny(Column):  # type: ignore
     # ==================================================================
 
     @overload
-    def mean(self, alias: str = None, collect: Literal[False] = False) -> Columny:
-        ...
+    def mean(self, alias: str | None = None, collect: Literal[False] = False) -> Columny: ...
 
     @overload
-    def mean(self, alias: str = None, collect: Literal[True] = True) -> float:
-        ...
+    def mean(self, alias: str | None = None, collect: Literal[True] = True) -> float: ...
 
-    def mean(self, alias: str = None, collect: bool = False) -> Union[Columny, float]:
+    def mean(self, alias: str | None = None, collect: bool = False) -> Union[Columny, float]:
         if not alias:
             alias = f"mean({self._name})"
         col = F.mean(self).alias(alias)
